@@ -27,7 +27,8 @@ import numpy as np
 ```
 
 ## Carregando Data(Dados)
-
+Estou retirando os dados do Github do "DataProfessor", na qual foi quem eu também vi o vídeo da montagem desse projeto para aprender.
+Vou deixar no final o Github dele para todos acessarem.
 ```python
 df = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/delaney_solubility_with_descriptors.csv')
 ```
@@ -130,10 +131,13 @@ plt.plot()
 
 plt.show()
 ```
-### Screenshots
 
-![Result](https://github.com/Victor-Lis/New-Year-Timer/blob/main/ScreenShots/ScreenShot1.png)
+## Screenshots
+![Result](https://github.com/Victor-Lis/Regression-AI-Model/blob/master/Images/Result.png)
 
-## Autores
-
+## Autor
 - [@Victor-Lis](https://github.com/Victor-Lis)
+
+## Conta do Data-Professor 
+Conta em que vi o vídeo do projeto e usei os dados disponibilizados por ele
+- [@Data-Professor](https://github.com/dataprofessor)
