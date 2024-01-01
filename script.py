@@ -27,6 +27,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 
 # Model Building 
 
+
 ## Linear Regression
 
 ### Training the model
@@ -60,24 +61,8 @@ lr_results.columns = ['Method', 'Training MSE', 'Training R2', 'Test MSE', 'Test
 print(lr_results)
 print()
 
-# Anotações
-
-## MSE(Erro Quadrático Médio de Treinamento) => {
-##  É a medida da diferença entre os valores previstos pelo modelo e os valores reais conjunto teste. 
-##  Um valor menor de MSE indica que as previsões do modelo são mais próximas dos valores reais.
-##  No caso, o Test MSE por exemplo, é de 1.020695, o que significa que, em média, o modelo está errando por 1.020695 unidades para os dados de teste.
-## }
-
-## R2(Coeficiente de Determinação Linear de Teste) => {
-##  Medida da porcentagem da variação dos dados que é explicada pelo modelo.
-##  Um valor maior de R2 indica que o modelo é mais capaz de explicar a variação dos dados para dados que o modelo não viu antes.
-##  No seu caso, o Test R20Linear por exemplo, é de 0.789162, o que significa que o modelo está explicando 78.9162% da variação dos dados de teste.
-## }
-
-
 
 ## Random Forest
-
 
 ### Training Model
 
@@ -111,6 +96,7 @@ print(rf_results)
 print()
 
 
+
 # Model Comparison
 
 ## Table Comparison
@@ -133,3 +119,19 @@ plt.xlabel("Experimental logS")
 plt.plot()
 
 plt.show()
+
+
+# Anotações
+
+## MSE(Erro Quadrático Médio de Treinamento) => {
+##  É a medida da diferença entre os valores previstos pelo modelo e os valores reais conjunto teste. 
+##  Um valor menor de MSE indica que as previsões do modelo são mais próximas dos valores reais.
+##  Por exemplo, se o valor é de 1.020695, o que significa que, em média, o modelo está errando por 1.020695 unidades para os dados de teste.
+## }
+
+## R2(Coeficiente de Determinação Linear de Teste) => {
+##  Medida da porcentagem da variação dos dados que é explicada pelo modelo.
+##  Um valor maior de R2 indica que o modelo é mais capaz de explicar a variação dos dados para dados que o modelo não viu antes.
+##  Por exemplo o valor do R2 é de 0.789162, o que significa que o modelo está explicando 78.9162% da variação dos dados de teste.
+## }
+
