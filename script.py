@@ -9,19 +9,24 @@ from sklearn.metrics import mean_squared_error, r2_score
 print()
 dataType = ""
 df = ""
-while dataType != "1" and dataType != "2" and dataType != "3":
-    dataType = input(f"Escolha uma opção: \n 1- Data1 \n 2- Data2 \n 3- Data3 \nR: ")
+while dataType not in ["1", "2", "3", "4"]:
+    dataType = input(f"Escolha uma opção: \n 1- Data1 \n 2- Data2 \n 3- Data3 \n 4- Arquivo local \nR: ")
 # Data 1;
 if dataType == "1":
     df = pd.read_csv('https://raw.githubusercontent.com/Victor-Lis/Regression-AI-Model-Practice/master/datas/data.csv')
 
 # Data 2;
-if dataType == "2":
+elif dataType == "2":
     df = pd.read_csv('https://raw.githubusercontent.com/Victor-Lis/Regression-AI-Model-Practice/master/datas/data2.csv')
 
 # Data 3;
-if dataType == "3":
+elif dataType == "3":
     df = pd.read_csv('https://raw.githubusercontent.com/Victor-Lis/Regression-AI-Model-Practice/master/datas/data3.csv')
+
+# Data local
+elif dataType == "4":
+    local_path = input("Digite o caminho do arquivo CSV local (ex: datas/data.csv): ")
+    df = pd.read_csv(local_path)
 
 
 # Data Preparation 
