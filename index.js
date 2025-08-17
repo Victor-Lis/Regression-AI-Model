@@ -1,32 +1,35 @@
-// Esse é o arquivo que usei para copiar os valores para as tabelas de dados.
+const fs = require('fs');
+const path = require('path');
+const { Parser } = require('json2csv');
 
-const f1 = (x) => console.log(`${x},${x*2+1}`)
+// Pega a fórmula via argumento de linha de comando
+const formula = process.argv[2];
 
-console.log("Function 1")
-console.log("x,y")
+if (!formula) {
+    console.error('Por favor, forneça a fórmula como argumento. Exemplo: node index.js "x * 2"');
+    process.exit(1);
+}
+const results = [];
 
-for(let x = 1; x <= 100; x++){
-    f1(x)
+// Loop through values from 1 to 1000
+for (let i = 0; i < 100000; i++) {
+    const x = Math.floor(Math.random() * 100) + 1;
+    const y = eval(formula.replace(/x/g, x));
+    results.push({ x, y });
 }
 
-console.log("")
+// Define the path for thye CSV file
+const csvFilePath = path.join(__dirname, './data.csv');
 
-const f2 = (x) => console.log(`${x},${x*4+1}`)
+// Convert results to CSV format
+const json2csvParser = new Parser();
+const csv = json2csvParser.parse(results);
 
-console.log("Function 2")
-console.log("x,y")
-
-for(let x = 1; x <= 100; x++){
-    f2(x)
-}
-
-console.log("")
-
-const f3 = (x) => console.log(`${x},${(x*3)+(x/2)}`)
-
-console.log("Function 3")
-console.log("x,y")
-
-for(let x = 1; x <= 1000; x++){
-    f3(x)
-}
+// Write the CSV file
+fs.writeFile(csvFilePath, csv, (err) => {
+    if (err) {
+        console.error('Error writing to CSV file', err);
+    } else {
+        console.log('Arquivo CSV foi criado com sucesso.');
+    }
+});

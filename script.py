@@ -3,31 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
-
-# Load Data 
-
-print()
-dataType = ""
-df = ""
-while dataType not in ["1", "2", "3", "4"]:
-    dataType = input(f"Escolha uma opção: \n 1- Data1 \n 2- Data2 \n 3- Data3 \n 4- Arquivo local \nR: ")
-# Data 1;
-if dataType == "1":
-    df = pd.read_csv('https://raw.githubusercontent.com/Victor-Lis/Regression-AI-Model-Practice/master/datas/data.csv')
-
-# Data 2;
-elif dataType == "2":
-    df = pd.read_csv('https://raw.githubusercontent.com/Victor-Lis/Regression-AI-Model-Practice/master/datas/data2.csv')
-
-# Data 3;
-elif dataType == "3":
-    df = pd.read_csv('https://raw.githubusercontent.com/Victor-Lis/Regression-AI-Model-Practice/master/datas/data3.csv')
-
-# Data local
-elif dataType == "4":
-    local_path = input("Digite o caminho do arquivo CSV local (ex: datas/data.csv): ")
-    df = pd.read_csv(local_path)
-
+df = pd.read_csv('./data.csv')
 
 # Data Preparation 
 
@@ -89,7 +65,7 @@ def predict():
     prediction = lr.predict(new_data)
 
     ### Print the prediction result
-    print("Valor:", prediction[0])
+    print("Valor:", round(prediction[0], 2))
     print()
 
     ### Restart
